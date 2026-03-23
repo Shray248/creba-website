@@ -1,4 +1,4 @@
-"use client"; // Yeh line runtime error fix karegi
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import { 
@@ -76,7 +76,6 @@ const testimonials = [
 ];
 
 // --- FOUNDERS DATA ---
-// Aapke public folder ki images ab yahan connected hain
 const founders = [
   {
     name: "Shray Chaudhary",
@@ -170,23 +169,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-neutral-900 font-sans selection:bg-neutral-900 selection:text-white">
-      {/* Header - Not fixed, will scroll away. Includes bottom border for separation. */}
+      {/* Header - Not fixed, absolute positioning. Includes bottom border for separation, no logo icon. */}
       <nav className="absolute top-0 w-full z-50 bg-white/50 py-8 border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          {/* Logo Section */}
+          {/* Logo Section - Text Only */}
           <div 
-            className="group flex items-center gap-3 cursor-pointer"
+            className="cursor-pointer"
             onClick={() => navigateTo('home')}
           >
-            <div className="w-10 h-10 bg-neutral-900 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:rotate-12">
-              <img 
-                src="/logo.png" 
-                alt="Creba Logo" 
-                className="w-full h-full object-cover grayscale brightness-150"
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-              <Zap size={20} className="text-white absolute" />
-            </div>
             <div className="text-2xl md:text-3xl font-sans font-bold tracking-tighter text-neutral-900">
               <span>CREBA STUDIO.</span>
             </div>
@@ -550,7 +540,7 @@ function Home({ navigateTo }) {
         </div>
       </section>
 
-      {/* Founders Section - Updated for colorful images */}
+      {/* Founders Section */}
       <section className="bg-white py-24 md:py-32 border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
